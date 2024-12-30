@@ -25,9 +25,15 @@ th, td {
 
 th {
   background-color: #a4a4a4;
+  cursor: pointer;
+  user-select: none;
 }
 
-tr.normal {
+th:hover {
+  background-color: #ddd;
+}
+
+/* tr.normal {
   background-color: #66a766;
 }
 
@@ -37,4 +43,20 @@ tr.warning {
 
 tr.critical {
   background-color: #dd5f4e;
+} */
+
+/* Status-specific row colors */
+.status-normal {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-critical {
+  background-color: #f8d7da;
+  color: #721c24;
 }
