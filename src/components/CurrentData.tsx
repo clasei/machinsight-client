@@ -63,6 +63,7 @@ interface Machine {
           }
           return 0;
         });
+        
         setMachines(sortedMachines);
     };
     
@@ -73,37 +74,38 @@ interface Machine {
 
     return (
         <div>
-            <h1>Machine Data</h1>
+            <h1>Machinsight: last data</h1>
             <table>
-                <thead>
-                    <tr>
-                        <th onClick={() => sortBy("id")}>ID</th>
-                        <th onClick={() => sortBy("machineName")}>Name</th>
-                        <th onClick={() => sortBy("temperature")}>Temperature</th>
-                        <th onClick={() => sortBy("vibration")}>Vibration</th>
-                        <th onClick={() => sortBy("fuelLevel")}>Fuel Level</th>
-                        <th onClick={() => sortBy("status")}>Status</th>
-                        <th onClick={() => sortBy("workHours")}>Work Hours</th>
-                        <th onClick={() => sortBy("location")}>Location</th>
-                    </tr>
-                </thead>
-                <tbody>
-    {machines.map((machine) => (
-        <tr
-            key={machine.id}
-            className={`status-${machine.status}`} // class name based on status
-        >
-            <td>{machine.id}</td>
-            <td>{machine.machineName}</td>
-            <td>{machine.temperature}°C</td>
-            <td>{machine.vibration} mm/s</td>
-            <td>{machine.fuelLevel}%</td>
-            <td>{machine.status}</td>
-            <td>{machine.workHours} hrs</td>
-            <td>{machine.location}</td>
-        </tr>
-    ))}
-</tbody>
+            <thead>
+              <tr>
+                  <th onClick={() => sortBy("id")} className={sortConfig.key === "id" ? "sorted" : ""}>ID</th>
+                  <th onClick={() => sortBy("machineName")} className={sortConfig.key === "machineName" ? "sorted" : ""}>Name</th>
+                  <th onClick={() => sortBy("temperature")} className={sortConfig.key === "temperature" ? "sorted" : ""}>Temperature</th>
+                  <th onClick={() => sortBy("vibration")} className={sortConfig.key === "vibration" ? "sorted" : ""}>Vibration</th>
+                  <th onClick={() => sortBy("fuelLevel")} className={sortConfig.key === "fuelLevel" ? "sorted" : ""}>Fuel Level</th>
+                  <th onClick={() => sortBy("status")} className={sortConfig.key === "status" ? "sorted" : ""}>Status</th>
+                  <th onClick={() => sortBy("workHours")} className={sortConfig.key === "workHours" ? "sorted" : ""}>Work Hours</th>
+                  <th onClick={() => sortBy("location")} className={sortConfig.key === "location" ? "sorted" : ""}>Location</th>
+              </tr>
+          </thead>
+
+          <tbody>
+            {machines.map((machine) => (
+                <tr
+                    key={machine.id}
+                    className={`status-${machine.status}`} // class name based on status
+                >
+                    <td>{machine.id}</td>
+                    <td>{machine.machineName}</td>
+                    <td>{machine.temperature}°C</td>
+                    <td>{machine.vibration} mm/s</td>
+                    <td>{machine.fuelLevel}%</td>
+                    <td>{machine.status}</td>
+                    <td>{machine.workHours} hrs</td>
+                    <td>{machine.location}</td>
+                </tr>
+            ))}
+        </tbody>
 
             </table>
         </div>
