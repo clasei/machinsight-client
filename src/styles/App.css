@@ -1,26 +1,26 @@
 #root {
   max-width: 1280px;
+  height: 100vh;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  margin: 20px;
+  padding-top: 2.5rem;
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 th, td {
-  border: 1px solid #ddd;
+  border: 1px solid #7a7a7a;
   text-align: left;
-  padding: 8px;
+  padding: 0.75rem;
 }
 
 th {
@@ -30,22 +30,10 @@ th {
 }
 
 th:hover {
-  background-color: #ddd;
+  background-color: #3d74db;
 }
 
-/* tr.normal {
-  background-color: #66a766;
-}
-
-tr.warning {
-  background-color: #e09d40;
-}
-
-tr.critical {
-  background-color: #dd5f4e;
-} */
-
-/* Status-specific row colors */
+/* ---------- status */
 .status-normal {
   background-color: #d4edda;
   color: #155724;
@@ -59,4 +47,18 @@ tr.critical {
 .status-critical {
   background-color: #f8d7da;
   color: #721c24;
+}
+
+/* ---------- responsive */
+@media (max-width: 1024px) {
+  table {
+    display: block; 
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th, td {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
 }
