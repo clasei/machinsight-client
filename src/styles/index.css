@@ -1,11 +1,12 @@
+/* ---------------- Global Variables & Font Settings */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #282828;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,6 +14,25 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ---------------- Global Layout */
+body {
+  margin: 0;
+  /* padding-top: 2rem; */
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* ---------------- Typography */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  text-align: center;
+  text-shadow: 2px 2px 3px #49e1fc;
+}
+
+/* ---------------- Links */
 a {
   font-weight: 500;
   color: #646cff;
@@ -22,19 +42,7 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
+/* ---------------- Buttons */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -54,6 +62,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* ---------------- Light Mode */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
