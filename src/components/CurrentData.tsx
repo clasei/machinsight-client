@@ -38,6 +38,18 @@ interface Machine {
           });
       }, []); // empty dependency array -> run once on component mount
 
+      // columns stored in an array of objects to manage dinamically
+      const columns = [
+        { key: "id", label: "ID" },
+        { key: "machineName", label: "Name" },
+        { key: "temperature", label: "Temperature" },
+        { key: "vibration", label: "Vibration" },
+        { key: "fuelLevel", label: "Fuel Level" },
+        { key: "status", label: "Status" },
+        { key: "workHours", label: "Work Hours" },
+        { key: "location", label: "Location" }
+    ];
+    
     // sortBy function to sort the machines based on the key argument
     const sortBy = (key: keyof Machine) => {
         let direction: "asc" | "desc" = "asc";
@@ -63,7 +75,7 @@ interface Machine {
           }
           return 0;
         });
-        
+
         setMachines(sortedMachines);
     };
     
@@ -74,20 +86,21 @@ interface Machine {
 
     return (
         <div>
-            <h1>Machinsight: last data</h1>
+            <h1>Machinsight Dashboard</h1>
             <table>
             <thead>
-              <tr>
-                  <th onClick={() => sortBy("id")} className={sortConfig.key === "id" ? "sorted" : ""}>ID</th>
-                  <th onClick={() => sortBy("machineName")} className={sortConfig.key === "machineName" ? "sorted" : ""}>Name</th>
-                  <th onClick={() => sortBy("temperature")} className={sortConfig.key === "temperature" ? "sorted" : ""}>Temperature</th>
-                  <th onClick={() => sortBy("vibration")} className={sortConfig.key === "vibration" ? "sorted" : ""}>Vibration</th>
-                  <th onClick={() => sortBy("fuelLevel")} className={sortConfig.key === "fuelLevel" ? "sorted" : ""}>Fuel Level</th>
-                  <th onClick={() => sortBy("status")} className={sortConfig.key === "status" ? "sorted" : ""}>Status</th>
-                  <th onClick={() => sortBy("workHours")} className={sortConfig.key === "workHours" ? "sorted" : ""}>Work Hours</th>
-                  <th onClick={() => sortBy("location")} className={sortConfig.key === "location" ? "sorted" : ""}>Location</th>
-              </tr>
-          </thead>
+                <tr>
+                    {columns.map(({ key, label }) => (
+                        <th
+                            key={key}
+                            onClick={() => sortBy(key as keyof Machine)}
+                            className={sortConfig.key === key ? `sorted ${sortConfig.direction}` : ""}
+                        >
+                            {label} {sortConfig.key === key ? (sortConfig.direction === "asc" ? "▲" : "▼") : ""}
+                        </th>
+                    ))}
+                </tr>
+            </thead>
 
           <tbody>
             {machines.map((machine) => (
