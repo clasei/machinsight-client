@@ -40,11 +40,6 @@ th.sorted {
   font-weight: bold;
 }
 
-th.sorted::after {
-  content: " ▼";
-  font-size: 0.75rem;
-}
-
 /* ---------- status */
 .status-normal {
   background-color: #d4edda;
